@@ -1,8 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import Top from './Top';
 
 const Left = () => {
-  return <Container>Left</Container>;
+  return (
+    <Container>
+      <Top />
+    </Container>
+  );
 };
 
 export default Left;
