@@ -9,9 +9,10 @@ const Right = () => {
 }
 
 export default Right
-const Container = styled.div`
+const Container = styled.section`
   width: 50%;
-  margin-top: 92px;
+  padding: 20px;
+  margin-top: 90px;
   background-color: #e03131;
   border-radius: 0px 5px 5px 0px;
   border-left: 1px solid black;

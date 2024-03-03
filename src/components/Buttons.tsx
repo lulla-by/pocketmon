@@ -66,18 +66,17 @@ const Cross = styled.div`
   height: 100px;
   position: relative;
   width: 20px;
-  border: 3px solid black;
   border-radius: 3px;
+  margin: 0;
 
   &:after {
     background: black;
     content: '';
     height: 20px;
-    left: -41.5px;
+    left: -40px;
     position: absolute;
-    top: 38.5px;
+    top: 40px;
     width: 100px;
-    border: 3px solid black;
     border-radius: 3px;
   }
 `;

@@ -24,7 +24,7 @@ export default IllustratedGuide;
 
 const Container = styled.div`
   position: relative;
-  width: 250px;
+  width: 80%;
   padding: 40px;
   margin: auto;
   border-radius: 5px 5px 5px 5px;

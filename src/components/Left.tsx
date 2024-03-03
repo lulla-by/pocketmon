@@ -16,8 +16,8 @@ const Left = () => {
 
 export default Left;
 
-const Container = styled.div`
+const Container = styled.section`
   width: 50%;
   background-color: #e03131;
-  border-radius: 5px;
+  border-radius: 5px 5px 0px 5px;
 `;

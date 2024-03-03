@@ -3,7 +3,9 @@ import styled from 'styled-components'
 const Description = () => {
 
   return (
-    <Container>Description</Container>
+    <Container>
+      description
+    </Container>
   )
 }
 
@@ -18,5 +20,6 @@ const Container =  styled.div`
     color:#37b24d;
     font-weight: 600;
     border-radius: 5px;
+    overflow: scroll;
     
 `
