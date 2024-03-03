@@ -1,24 +1,20 @@
-import React, { ReactNode } from 'react';
-import styled from 'styled-components';
+import React, { Fragment, ReactNode } from 'react';
 import Header from './Header';
 import Footer from './Footer';
+import './fonts/fonts.css';
 
 interface Child {
   children: ReactNode;
 }
 const Layout = ({ children }: Child) => {
   return (
-    <LayoutContainer>
+    <Fragment>
       <Header />
       {children}
       <Footer />
-    </LayoutContainer>
+    </Fragment>
   );
 };
 
 export default Layout;
 
-const LayoutContainer = styled.div`
-  width: 800px;
-  margin: auto;
-`;
