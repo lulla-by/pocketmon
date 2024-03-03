@@ -1,4 +1,3 @@
-import React from 'react';
 import Left from '../components/Left';
 import Right from '../components/Right';
 import Layout from '../components/Layout';
@@ -19,4 +18,7 @@ export default Detail;
 
 const Container = styled.main`
   display: flex;
+  font-family: "DungGeunMo";
+  width: 800px;
+  margin: auto;
 `
