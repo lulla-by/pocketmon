@@ -3,7 +3,7 @@ import Right from '../components/Right';
 import Layout from '../components/Layout';
 import styled from 'styled-components';
 
-const Detail = () => {
+const DetailPage = () => {
   return (
     <Layout>
       <Container>
@@ -14,7 +14,7 @@ const Detail = () => {
   );
 };
 
-export default Detail;
+export default DetailPage;
 
 const Container = styled.main`
   display: flex;
