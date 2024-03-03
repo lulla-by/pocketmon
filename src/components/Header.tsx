@@ -1,9 +1,15 @@
 import styled from 'styled-components';
 import Bg from '../assets/International_Pokémon_logo.svg.png';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
+  const navigate = useNavigate();
   return (
-    <Container>
+    <Container
+      onClick={() => {
+        navigate(`/`);
+      }}
+    >
       <SrOnlyTitle>포켓몬 도감</SrOnlyTitle>
     </Container>
   );
