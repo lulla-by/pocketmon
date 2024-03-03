@@ -1,15 +1,7 @@
-import React from 'react';
-import Left from './components/Left';
-import Right from './components/Right';
-import Layout from './components/Layout';
+import Router from './components/Router';
 
 function App() {
-  return (
-    <Layout>
-      <Left />
-      <Right />
-    </Layout>
-  );
+  return <Router />;
 }
 
 export default App;
