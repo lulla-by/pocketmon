@@ -1,6 +1,6 @@
 import React, { Fragment, ReactNode } from 'react';
 import Header from './Header';
-import './fonts/fonts.css';
+import '../assets/fonts/fonts.css';
 
 interface Child {
   children: ReactNode;
