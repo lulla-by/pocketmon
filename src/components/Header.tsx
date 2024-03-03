@@ -12,8 +12,11 @@ const Header = () => {
 export default Header;
 
 const Container = styled.header`
-  margin: 20px 0px;
+  margin: auto;
+  width: 800px;
   padding: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
