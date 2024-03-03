@@ -13,4 +13,5 @@ export default Layout;
 const LayoutContainer = styled.div`
   width: 800px;
   margin: auto;
+  display: flex;
 `
