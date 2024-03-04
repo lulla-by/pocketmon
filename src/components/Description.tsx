@@ -1,25 +1,31 @@
 import styled from 'styled-components';
 
-const Description = ({data}:any) => {
+const Description = ({ data }: any) => {
 
-  const group = ["수중"]
+  const des =
+    data &&
+    data.flavor_text_entries.filter(
+      (text: any) =>
+        text.language.name === 'ko' &&
+        (text.version.name === 'x' ||
+          text.version.name === 'omega-ruby' ||
+          text.version.name === 'y')
+    );
+  const group = data?.['egg_groups'];
 
-  const des = ['태어났을 때부터 등에 이상한 씨앗이 심어져 있으며 몸과 함께 자란다고 한다.',
-    '태어나서부터 얼마 동안은 등의 씨앗으로부터 영양을 공급받아 크게 성장한다.',
-    '양지에서 낮잠 자는 모습을 볼 수 있다. 태양의 빛을 많이 받으면 등의 씨앗이 크게 자란다.']
   return (
     <Container>
-      <Title>이상해씨 (씨앗포켓몬)</Title>
+      <Title>{data && data.names[2].name}({data?.genera[1].genus})</Title>
       <GroupList>
         {group &&
           group.map((group: any, i: number) => (
-            <MonsteDescription key={i}>{group}</MonsteDescription>
+            <MonsteDescription key={i}>{group.name}</MonsteDescription>
           ))}
       </GroupList>
       <ul>
-        {
+        {des &&
           des.map((des: any, i: number) => (
-            <MonsteDescription key={i}>{des}</MonsteDescription>
+            <MonsteDescription key={i}>{des.flavor_text}</MonsteDescription>
           ))}
       </ul>
     </Container>
