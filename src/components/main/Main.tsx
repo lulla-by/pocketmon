@@ -16,11 +16,18 @@ export default Main;
 const Container = styled.main`
   font-family: 'DungGeunMo';
   margin: auto;
+  margin-top: 30px;
   width: 800px;
 `;
 
 const Title = styled.h2`
-  font-size: 2rem;
-  text-align: center;
-  padding: 5px;
+  overflow: hidden;
+  position: absolute;
+  clip: rect(0 0 0 0);
+  clip: rect(0, 0, 0, 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
 `;

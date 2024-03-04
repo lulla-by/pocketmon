@@ -37,46 +37,51 @@ const TopBox = styled.div`
 const Circle = styled.div`
   width: 40px;
   height: 40px;
-  background: black;
+  background: #012d2b;
   border-radius: 50%;
   position: absolute;
+  box-shadow: 2px 2px 3px black;
   top: 10px;
   left: 20px;
-`;
+  `;
 
 const Rectangle = styled.div`
   width: 110px;
   height: 60px;
   margin-left: 30px;
+  box-shadow: 2px 2px 3px black;
+  border: 1px solid #012d2b;
   background: #40c057;
-  border: 2px solid black;
   border-radius: 5px;
-`;
+  `;
 const Rectangle2 = styled.div<ButtonStyleProps>`
   width: 50px;
   border-radius: 5px;
   height: 5px;
   background: ${({ color }) => color};
-  border: 2px solid black;
+  box-shadow: 1px 1px 2px black;
+  border: 1px solid #012d2b;
   border-radius: 3px;
 `;
 
 const Cross = styled.div`
-  background: black;
+  background: #012d2b;
   height: 100px;
   position: relative;
-  width: 20px;
-  border-radius: 3px;
+  width: 30px;
+  border-radius: 5px;
   margin: 0;
+  box-shadow: 3px 3px 3px black;
 
-  &:after {
-    background: black;
+  &::after {
+    background: #012d2b;
+    box-shadow: 3px 0px 0px black;
     content: '';
-    height: 20px;
-    left: -40px;
+    height: 30px;
+    left: -35px;
     position: absolute;
-    top: 40px;
+    top: 35px;
     width: 100px;
-    border-radius: 3px;
+    border-radius: 5px;
   }
 `;

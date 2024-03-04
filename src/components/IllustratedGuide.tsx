@@ -29,8 +29,12 @@ const Container = styled.div`
   padding: 40px;
   margin: auto;
   border-radius: 5px 5px 5px 5px;
-  background: linear-gradient(45deg, transparent 20px, #f1f3f5 0) left;
+  box-shadow: 2px 2px 3px black;
+  background-color:#f1f3f5 ;
 `;
+
+
+
 const TopBox = styled.div`
   display: flex;
   position: absolute;

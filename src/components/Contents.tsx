@@ -24,11 +24,10 @@ const Contents = () => {
     return (
       <Container>
         <img src={imgSrc} width={100} height={100} alt={name} />
-        <p>앗 야생의 {name} 나타났다!</p>
+        <Description>앗 야생의 {name} 나타났다!</Description>
       </Container>
     );
   }
-
 
   return <Container>로딩 중...</Container>;
 };
@@ -40,13 +39,25 @@ const Container = styled.div`
   background: #343a40 url(${Bg}) no-repeat center;
   background-size: cover;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   border-radius: 5px;
-  gap: 15px;
-
-  p {
-    font-size: 1.5rem;
+  position: relative;
+  img{
+    margin-bottom: 15px;
   }
+`;
+
+const Description = styled.p`
+  font-size: 1.5rem;
+  font-weight: 600;
+  background-color: white;
+  border: 6px solid black;
+  width: 100%;
+  padding: 5px;
+  color: black;
+  border-style: double;
+  /* border-radius: 10px; */
+  position: absolute;
+  bottom: 0px;
 `;
