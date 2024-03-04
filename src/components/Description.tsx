@@ -1,38 +1,46 @@
+import { useRecoilValueLoadable } from 'recoil';
 import styled from 'styled-components';
+import { poketmonDataSelector } from '../store/atom';
 
-const Description = ({ data }: any) => {
-  const des =
-    data &&
-    data.flavor_text_entries.filter(
-      (text: any) =>
-        text.language.name === 'ko' &&
-        (text.version.name === 'x' ||
-          text.version.name === 'omega-ruby' ||
-          text.version.name === 'y')
+const Description = () => {
+  const fetchedData = useRecoilValueLoadable(poketmonDataSelector);
+
+  if (fetchedData.state === 'hasValue' && fetchedData.contents) {
+    const data = fetchedData.contents;
+    const des =
+      data &&
+      data.flavor_text_entries.filter(
+        (text: any) =>
+          text.language.name === 'ko' &&
+          (text.version.name === 'x' ||
+            text.version.name === 'omega-ruby' ||
+            text.version.name === 'y')
+      );
+    const group = data?.['egg_groups'];
+
+    return (
+      <Container>
+        <Title>
+          {data && data.names[2].name}({data?.genera[1].genus})
+        </Title>
+        <GroupList>
+          {group &&
+            group.map((group: any, i: number) => (
+              <GroupLi key={i}>{group.name}</GroupLi>
+            ))}
+        </GroupList>
+        <ul>
+          {des &&
+            des.map((des: any, i: number) => (
+              <MonsteDescription key={i}>{des.flavor_text}</MonsteDescription>
+            ))}
+        </ul>
+      </Container>
     );
-  const group = data?.['egg_groups'];
+  }
 
-  return (
-    <Container>
-      <Title>
-        {data && data.names[2].name}({data?.genera[1].genus})
-      </Title>
-      <GroupList>
-        {group &&
-          group.map((group: any, i: number) => (
-            <GroupLi key={i}>{group.name}</GroupLi>
-          ))}
-      </GroupList>
-      <ul>
-        {des &&
-          des.map((des: any, i: number) => (
-            <MonsteDescription key={i}>{des.flavor_text}</MonsteDescription>
-          ))}
-      </ul>
-    </Container>
-  );
+  return <div>로딩 중...</div>;
 };
-
 export default Description;
 
 const Container = styled.div`
