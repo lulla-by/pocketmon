@@ -10,6 +10,7 @@ const Header = () => {
         navigate(`/`);
       }}
     >
+      <ImgBox />
       <SrOnlyTitle>포켓몬 도감</SrOnlyTitle>
     </Container>
   );
@@ -18,16 +19,19 @@ const Header = () => {
 export default Header;
 
 const Container = styled.header`
-  margin: auto;
-  width: 800px;
-  padding: 50px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  background-color: #339af0;
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+const ImgBox = styled.div`
+  cursor: pointer;
   background: url(${Bg}) no-repeat center center;
   background-size: contain;
+  height: 10rem;
+  width: 300px;
+  margin: 10px;
 `;
 const SrOnlyTitle = styled.h1`
   overflow: hidden;
