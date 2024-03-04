@@ -3,6 +3,8 @@ import { Pokemon } from '../../type/type';
 import { getPocketmontInfo } from '../../api';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { useRecoilState } from 'recoil';
+import { pokemonId } from '../../store/atom';
 
 interface PokemonCardProps {
   monster: Pokemon;
@@ -11,12 +13,10 @@ interface PokemonCardProps {
 interface StyleProps {
   color: string;
 }
-
 const PokemonCard = ({ monster }: PokemonCardProps) => {
   const navigate = useNavigate();
   const id = monster.url.split('/')[6];
   const img = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
-
   const [data, setData] = useState<any>();
   const fetchData = async () => {
     const result = await getPocketmontInfo(id);
@@ -28,33 +28,35 @@ const PokemonCard = ({ monster }: PokemonCardProps) => {
 
   function getPastelToneColor(name: string) {
     switch (name?.toLowerCase()) {
-      case "black":
-          return "#adb5bd"; // 검은색
-      case "blue":
-          return "#4dabf7"; // 파란색
-      case "brown":
-          return "hsl(30, 50%, 40%)"; // 갈색
-      case "gray":
-          return "hsl(0, 0%, 50%)"; // 회색
-      case "green":
-          return "#8ce99a" // 초록색
-      case "pink":
-          return "#faa2c1"; // 분홍색
-      case "purple":
-          return "#da77f2"; // 보라색
-      case "red":
-          return "#fa5252"; // 빨간색
-      case "white":
-          return "hsl(0, 0%, 100%)"; // 흰색
-      case "yellow":
-          return "#ffd43b"; // 노란색
+      case 'black':
+        return '#adb5bd'; // 검은색
+      case 'blue':
+        return '#4dabf7'; // 파란색
+      case 'brown':
+        return 'hsl(30, 50%, 40%)'; // 갈색
+      case 'gray':
+        return 'hsl(0, 0%, 50%)'; // 회색
+      case 'green':
+        return '#8ce99a'; // 초록색
+      case 'pink':
+        return '#faa2c1'; // 분홍색
+      case 'purple':
+        return '#da77f2'; // 보라색
+      case 'red':
+        return '#fa5252'; // 빨간색
+      case 'white':
+        return 'hsl(0, 0%, 100%)'; // 흰색
+      case 'yellow':
+        return '#ffd43b'; // 노란색
       default:
-          return "#adb5bd(0, 0%, 50%)"; // 기본값 (회색)
+        return '#adb5bd(0, 0%, 50%)'; // 기본값 (회색)
+    }
   }
 
-  }
-
+  const [initialId, setInitialId] = useRecoilState(pokemonId);
   const moveDetail = () => {
+    setInitialId(id);
+    localStorage.setItem("id",id)
     navigate(`/detail/${id}`);
   };
 
