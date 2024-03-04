@@ -17,7 +17,6 @@ const Container = styled.main`
   font-family: 'DungGeunMo';
   margin: auto;
   width: 800px;
-  background-color: lightblue;
 `;
 
 const Title = styled.h2`
