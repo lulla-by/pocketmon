@@ -5,14 +5,14 @@ type ButtonStyleProps = {
   width: number;
   height: number;
 };
-const IllustratedGuide = () => {
+const IllustratedGuide = ({data}:any) => {
   return (
     <Container>
       <TopBox>
         <Button width={10} height={10} />
         <Button width={10} height={10} />
       </TopBox>
-      <Contents />
+      <Contents data = {data} />
       <BottomBox>
         <Button width={20} height={20} />
       </BottomBox>

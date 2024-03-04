@@ -4,11 +4,11 @@ import Top from './Top';
 import IllustratedGuide from './IllustratedGuide';
 import Buttons from './Buttons';
 
-const Left = () => {
+const Left = ({data}:any) => {
   return (
     <Container>
       <Top />
-      <IllustratedGuide />
+      <IllustratedGuide data = {data} />
       <Buttons />
     </Container>
   );
