@@ -4,7 +4,7 @@ export const getPocketmontData = async (count=50) => {
   const res = await result.json();
   return res.results;
 };
-export const getPocketmontInfo = async (id: string) => {
+export const getPocketmontInfo = async (id="1") => {
   const url = `https://pokeapi.co/api/v2/pokemon-species/${id}`;
   const result = await fetch(url);
   const res = await result.json();
