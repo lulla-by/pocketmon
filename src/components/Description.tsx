@@ -2,6 +2,16 @@ import { useRecoilValueLoadable } from 'recoil';
 import styled from 'styled-components';
 import { poketmonDataSelector } from '../store/atom';
 
+interface DescriptionType {
+  flavor_text: string;
+  language: { name: string };
+  version: { name: string };
+}
+
+interface GroupType {
+  name: string;
+  url: string;
+}
 const Description = () => {
   const fetchedData = useRecoilValueLoadable(poketmonDataSelector);
 
@@ -10,12 +20,13 @@ const Description = () => {
     const des =
       data &&
       data.flavor_text_entries.filter(
-        (text: any) =>
+        (text: DescriptionType) =>
           text.language.name === 'ko' &&
           (text.version.name === 'x' ||
             text.version.name === 'omega-ruby' ||
             text.version.name === 'y')
       );
+
     const group = data?.['egg_groups'];
 
     return (
@@ -25,13 +36,13 @@ const Description = () => {
         </Title>
         <GroupList>
           {group &&
-            group.map((group: any, i: number) => (
+            group.map((group: GroupType, i: number) => (
               <GroupLi key={i}>{group.name}</GroupLi>
             ))}
         </GroupList>
         <ul>
           {des &&
-            des.map((des: any, i: number) => (
+            des.map((des: DescriptionType, i: number) => (
               <MonsteDescription key={i}>{des.flavor_text}</MonsteDescription>
             ))}
         </ul>

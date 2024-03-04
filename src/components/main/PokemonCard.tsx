@@ -13,18 +13,30 @@ interface PokemonCardProps {
 interface StyleProps {
   color: string;
 }
+
+interface NamesType {
+  language: { name: string };
+  name: string;
+}
+interface DataType {
+  color: { name: string };
+  names: NamesType[];
+}
 const PokemonCard = ({ monster }: PokemonCardProps) => {
   const navigate = useNavigate();
   const id = monster.url.split('/')[6];
   const img = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
-  const [data, setData] = useState<any>();
+  const [data, setData] = useState<DataType>();
+
   const fetchData = async () => {
     const result = await getPocketmontInfo(id);
     setData(result);
   };
 
   const name = data && data.names[2].name;
-  const color = getPastelToneColor(data && data.color.name);
+  const color = getPastelToneColor(
+    data && data.color.name ? data.color.name : ''
+  );
 
   function getPastelToneColor(name: string) {
     switch (name?.toLowerCase()) {
@@ -86,6 +98,15 @@ const Container = styled.li`
   cursor: pointer;
   border-radius: 2px;
   background-color: #f8f9fa;
+  transition: box-shadow 0.4s ease-in-out;
+
+  &:hover {
+    box-shadow: 5px 5px 10px black;
+  }
+
+  &:not(:hover) {
+    box-shadow: 0 0 0 transparent;
+  }
 `;
 const Monster = styled.div`
   padding-top: 15px;
