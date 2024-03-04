@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components';
 import Description from './Description';
 
-const Right = ({data}:any) => {
+const Right = () => {
   return (
-    <Container><Description data={data}/></Container>
+    <Container><Description/></Container>
   )
 }
 
