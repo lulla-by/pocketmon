@@ -46,7 +46,7 @@ const PokemonList = () => {
             <PokemonCard key={monster.name} monster={monster} />
           ))}
       </Container>
-      <DivBox ref={setTarget}>위치확인</DivBox>
+      <DivBox ref={setTarget}/>
     </Fragment>
   );
 };
