@@ -4,3 +4,9 @@
     font-style: normal;
     src: url('./DungGeunMo.ttf');
   }
+@font-face {
+    font-family: 'Pretendard';
+    font-weight: 500;
+    font-style: normal;
+    src: url('./Pretendard-Regular.ttf');
+  }

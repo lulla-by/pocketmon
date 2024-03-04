@@ -31,23 +31,23 @@ const PokemonCard = ({ monster }: PokemonCardProps) => {
       case 'black':
         return '#adb5bd'; // 검은색
       case 'blue':
-        return '#4dabf7'; // 파란색
+        return '#add3e6'; // 파란색
       case 'brown':
-        return 'hsl(30, 50%, 40%)'; // 갈색
+        return '#cdbca7'; // 갈색
       case 'gray':
-        return 'hsl(0, 0%, 50%)'; // 회색
+        return '#d7d7d5'; // 회색
       case 'green':
-        return '#8ce99a'; // 초록색
+        return '#b3dad8'; // 초록색
       case 'pink':
         return '#faa2c1'; // 분홍색
       case 'purple':
-        return '#da77f2'; // 보라색
+        return '#c3a4d6'; // 보라색
       case 'red':
-        return '#fa5252'; // 빨간색
+        return '#e6b185'; // 빨간색
       case 'white':
-        return 'hsl(0, 0%, 100%)'; // 흰색
+        return '#f3edbb'; // 흰색
       case 'yellow':
-        return '#ffd43b'; // 노란색
+        return '#ede66f'; // 노란색
       default:
         return '#adb5bd(0, 0%, 50%)'; // 기본값 (회색)
     }
@@ -56,7 +56,7 @@ const PokemonCard = ({ monster }: PokemonCardProps) => {
   const [initialId, setInitialId] = useRecoilState(pokemonId);
   const moveDetail = () => {
     setInitialId(id);
-    localStorage.setItem("id",id)
+    localStorage.setItem('id', id);
     navigate(`/detail/${id}`);
   };
 
@@ -81,8 +81,11 @@ export default PokemonCard;
 
 const Container = styled.li`
   padding: 10px;
-  border: 1px solid black;
+  border: 1px solid #495057;
   position: relative;
+  cursor: pointer;
+  border-radius: 2px;
+  background-color: #f8f9fa;
 `;
 const Monster = styled.div`
   padding-top: 15px;
@@ -93,20 +96,23 @@ const Monster = styled.div`
   align-items: center;
 `;
 const NameBox = styled.div`
+  font-family: 'Pretendard';
   position: absolute;
   left: 5px;
   top: 5px;
   display: flex;
+  font-weight: 600;
   align-items: center;
+  font-size: 1rem;
   gap: 5px;
 `;
 const IdBox = styled.p<StyleProps>`
-  background-color: ${({ color }) => color};
-  color: black;
-  width: 30px;
-  padding: 2px;
-  border-radius: 50%;
-  text-align: center;
   font-size: 1rem;
+  background-color: ${({ color }) => color};
+  padding: 1px;
+  color: black;
+  min-width: 25px;
+  border-radius: 10px;
+  text-align: center;
   border: 1px solid black;
 `;
