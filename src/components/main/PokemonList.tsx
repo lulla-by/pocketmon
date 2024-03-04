@@ -16,7 +16,9 @@ const PokemonList = () => {
   return (
     <Container>
       {list &&
-        list.map((monster: Pokemon) => <PokemonCard monster={monster} />)}
+        list.map((monster: Pokemon) => (
+          <PokemonCard key={monster.url.split('/')[6]} monster={monster} />
+        ))}
     </Container>
   );
 };
